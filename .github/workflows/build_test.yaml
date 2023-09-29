@@ -1,0 +1,32 @@
+name: Build and Test Assignment
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "assignments/**"
+  workflow_dispatch:
+jobs:
+  Assignment-Tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Install tools
+        run: sudo apt-get install gcc make cmake clang-format clang-tidy valgrind libcriterion-dev
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Build assignment targets and tests
+        run: |
+          cd assignments/$(echo ${{ github.event.pull_request.head.ref }} | sed 's/[^0-9]*//g')-*
+          mkdir build
+          cd build
+          cmake ..
+          make
+      - name: Run clang-format
+        run: |
+          cd assignments/$(echo ${{ github.event.pull_request.head.ref }} | sed 's/[^0-9]*//g')-*
+          clang-format --dry-run -i src/*.[ch]
+      - name: Run unit tests
+        run: |
+          cd assignments/$(echo ${{ github.event.pull_request.head.ref }} | sed 's/[^0-9]*//g')-*
+          cd build
+          ctest --output-on-failure --verbose
