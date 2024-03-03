@@ -7,7 +7,7 @@ that error?
 
 Answer:
 
-(Write your answer here)
+Adding a library that doesn't exist
 
 ## 2. Parsing/Syntax Error
 
@@ -16,7 +16,7 @@ error?
 
 Answer:
 
-(Write your answer here)
+Deleting one of the parenthesis
 
 ## 3. Static Checking Error
 
@@ -25,7 +25,7 @@ is that error?
 
 Answer:
 
-(Write your answer here)
+If we divide prob by 0
 
 ## 4. Linking Error
 
@@ -34,4 +34,4 @@ error?
 
 Answer:
 
-(Write your answer here)
+Calling not_surprisal instead of surprisal
