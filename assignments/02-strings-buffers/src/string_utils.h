@@ -8,17 +8,32 @@
 static const char WHITESPACE[] = " \f\n\r\t\v";
 
 /**
- * Replace this line with your documentation comment.
+ * Find if one string starts with another substring
+ * 
+ * @param str string to be checked
+ * @param substr string we want to check if str starts with
+ * 
+ * @return 0 or 1 depending on if str starts with substr or not
  */
 int startswith(const char* str, const char* substr);
 
 /**
- * Replace this line with your documentation comment.
+ * Find if one string ends with another substring
+ * 
+ * @param str string to be checked
+ * @param substr string we want to check if str ends with
+ * 
+ * @return 0 or 1 depending on if str ends with substr or not
  */
 int endswith(const char* str, const char* substr);
 
 /**
- * Replace this line with your documentation comment.
+ * Count how many times one string occurs in another string
+ * 
+ * @param str string to be checked
+ * @param substr string to find instances of in stry
+ * 
+ * @return size_t for how many times substr occurs in str
  */
 size_t count(const char* str, const char* substr);
 
