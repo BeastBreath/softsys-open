@@ -3,12 +3,35 @@
 # conversion warnings for test code.
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-conversion")
 
-add_executable(test_tic_tac_toe test_tic_tac_toe.c)
-target_link_libraries(test_tic_tac_toe
-  PRIVATE tic_tac_toe
+# add_executable(test_tic_tac_toe test_tic_tac_toe.c)
+add_executable(test_setup test_setup.c)
+add_executable(test_move test_move.c)
+add_executable(test_is_game_over test_is_game_over.c)
+
+target_link_libraries(test_setup
+  PRIVATE setup
   PUBLIC ${CRITERION}
 )
-add_test(
-  NAME test_tic_tac_toe
-  COMMAND test_tic_tac_toe ${CRITERION_FLAGS}
+target_link_libraries(test_move
+  PRIVATE move
+  PUBLIC ${CRITERION}
 )
+target_link_libraries(test_is_game_over
+  PRIVATE is_game_over
+  PUBLIC ${CRITERION}
+)
+
+add_test(
+  NAME test_setup
+  COMMAND test_setup ${CRITERION_FLAGS}
+)
+add_test(
+  NAME test_move
+  COMMAND test_move ${CRITERION_FLAGS}
+)
+add_test(
+  NAME test_is_game_over
+  COMMAND test_is_game_over ${CRITERION_FLAGS}
+)
+
+

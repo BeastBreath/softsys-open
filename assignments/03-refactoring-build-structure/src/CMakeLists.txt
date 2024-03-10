@@ -1,4 +1,10 @@
-add_library(tic_tac_toe tic_tac_toe.c tic_tac_toe.h)
+# add_library(tic_tac_toe tic_tac_toe.c tic_tac_toe.h)
+add_library(setup setup.c setup.h)
+add_library(move move.c move.h)
+add_library(is_game_over is_game_over.c is_game_over.h)
 
 add_executable(run_tic_tac_toe run_tic_tac_toe.c)
-target_link_libraries(run_tic_tac_toe tic_tac_toe)
+# target_link_libraries(run_tic_tac_toe tic_tac_toe)
+target_link_libraries(run_tic_tac_toe setup)
+target_link_libraries(run_tic_tac_toe move)
+target_link_libraries(run_tic_tac_toe is_game_over)

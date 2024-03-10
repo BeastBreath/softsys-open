@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "tic_tac_toe.h"
+#include "constants.h"
+#include "setup.h"
+#include "move.h"
+#include "is_game_over.h"
 
 int main(void) {
   // Ideally, the state setup would involve using malloc calls for the board and
